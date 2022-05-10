@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,3 +24,5 @@ Route::get('/pages', [PageController::class, 'pages']);
 Route::get('/hello.blade', function () {
     return view('hello', ['name' => 'Linda']);
 });
+
+Route::get('/posts', [PostController::class, 'index']);
