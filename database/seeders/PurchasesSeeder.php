@@ -3,9 +3,12 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Post;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+use App\Models\Purchases;
 
-class PostSeeder extends Seeder
+
+class PurchasesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +17,6 @@ class PostSeeder extends Seeder
      */
     public function run(): void
     {
-        Post::factory()->count(17)->create();
+        Purchases::factory()->count(12)->create();
     }
 }

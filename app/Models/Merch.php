@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Database\Factories\PostFactory;
+use Database\Factories\MerchFactory;
 
-class Post extends Model
+class Merch extends Model
 {
     use HasFactory;
 
@@ -16,13 +16,15 @@ class Post extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'title',
-        'body',
-        'author_name',   
+        'price',
+        'class',
+        'subclass',
+        'size',   
     ];
 
-    protected static function newFactory(): PostFactory
+    protected static function newFactory(): MerchFactory
     {
-        return new PostFactory();
+        return new MerchFactory();
     }
+
 }

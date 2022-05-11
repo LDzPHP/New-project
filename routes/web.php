@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\PageController;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\MerchController;
+use App\Http\Controllers\PurchasesController;
+use App\Http\Controllers\CustomersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,14 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/pages', [PageController::class, 'pages']);
-
-Route::get('/hello.blade', function () {
-    return view('hello', ['name' => 'Linda']);
-});
-
-Route::get('/posts', [PostController::class, 'index']);
+Route::get('/users', [UsersController::class, 'index']);
+Route::get('/merch', [MerchController::class, 'index']);
+Route::get('/purchases', [PurchasesController::class, 'index']);
+Route::get('/customers', [CustomersController::class, 'index']);
