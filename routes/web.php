@@ -1,6 +1,8 @@
 <?php
 
-use App\Http\Controllers\PageController;
+use App\Http\Controllers\PrintsController;
+use App\Http\Controllers\SalesController;
+use App\Http\Controllers\CustomersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,8 +20,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/pages', [PageController::class, 'pages']);
-
-Route::get('/hello.blade', function () {
-    return view('hello', ['name' => 'Linda']);
-});
+Route::get('/sales', [SalesController::class, 'index']);
+Route::get('/prints', [PrintsController::class, 'index']);
+Route::get('/customers', [CustomersController::class, 'index']);
