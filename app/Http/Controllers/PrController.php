@@ -8,7 +8,7 @@ class PrController extends Controller
 {
     public function index()
     {
-        $pr = Pr::find(1);
+        $pr = Pr::get();
         dd($pr);
     }
 }

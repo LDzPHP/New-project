@@ -8,7 +8,7 @@ class CustomerController extends Controller
 {
     public function index()
     {
-        $customer = Customer::find(1);
+        $customer = Customer::get();
         dd($customer);
     }
 }

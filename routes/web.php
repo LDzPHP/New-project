@@ -24,4 +24,3 @@ Route::get('/', function () {
 Route::get('/sales', [SaleController::class, 'index']);
 Route::get('/prints', [PrController::class, 'index']);
 Route::get('/customers', [CustomerController::class, 'index']);
-Route::get('/pages', [PageController::class, 'index']);

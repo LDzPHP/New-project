@@ -8,7 +8,7 @@ class SaleController extends Controller
 {
     public function index()
     {
-        $sale = Sale::find(1);
+        $sale = Sale::get();
         dd($sale);        
     }
 }
