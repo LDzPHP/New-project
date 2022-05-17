@@ -9,7 +9,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('sales', function (Blueprint $table) {
-            $table->integer('sum');
+            $table->integer('sum')->nullable();
         });
     }
 

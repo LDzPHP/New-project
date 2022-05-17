@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Pr;
 
-
 class PrSeeder extends Seeder
 {
     /**
@@ -15,6 +14,6 @@ class PrSeeder extends Seeder
      */
     public function run()
     {
-        Pr::factory()->create();
+        Pr::factory()->count(12)->create();
     }
 }

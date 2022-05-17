@@ -18,9 +18,10 @@ class SaleFactory extends Factory
     {
         return [
 
-            'price' => $this->faker->floatval(),
+            'price' => $this->faker->randomNumber(),
             'print_id' => $this->faker->randomDigitNotNull(),
             'customer_id' => $this->faker->randomDigitNotNull(),
+            'sum' => $this->faker->randomDigit()
         ];
     }
 }

@@ -12,9 +12,9 @@ class CustomersSeeder extends Seeder
      *
      * @return void
      */
-    public function run(): void 
+    public function run()
 
     {
-        Customer::factory()->create();
+        Customer::factory()->count(12)->create();
     }
 }

@@ -3,7 +3,6 @@
 use App\Http\Controllers\PrController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\CustomerController;
-use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,10 +15,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('/sales', [SaleController::class, 'index']);
 Route::get('/prints', [PrController::class, 'index']);
