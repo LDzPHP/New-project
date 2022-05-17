@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\PrintsController;
-use App\Http\Controllers\SalesController;
-use App\Http\Controllers\CustomersController;
+use App\Http\Controllers\PrController;
+use App\Http\Controllers\SaleController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/sales', [SalesController::class, 'index']);
-Route::get('/prints', [PrintsController::class, 'index']);
-Route::get('/customers', [CustomersController::class, 'index']);
+Route::get('/sales', [SaleController::class, 'index']);
+Route::get('/prints', [PrController::class, 'index']);
+Route::get('/customers', [CustomerController::class, 'index']);
+Route::get('/pages', [PageController::class, 'index']);

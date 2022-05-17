@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('customers', function (Blueprint $table) {
-            $table->integer('customer_id');
+        Schema::table('prs', function (Blueprint $table) {
+            $table->integer('pr_price');
         });
     }
 
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down()
     {
-            Schema::dropIfExists('customer_id');
+            Schema::dropIfExists('pr_price');
         }
 };

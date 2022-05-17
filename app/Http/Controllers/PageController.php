@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Page;
+
 class PageController 
 {
-    public function pages()
+    public function index()
     {
-    return view('hello', ['name' => 'Linda']);
+        $page = Page::find(1);
+        dd($page);
     }
 };
