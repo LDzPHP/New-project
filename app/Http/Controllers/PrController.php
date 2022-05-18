@@ -3,36 +3,36 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pr;
+use Illuminate\View\View;
+use Illuminate\Http\Request;
 
 class PrController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         return view('prs.index');
     }
 
-    public function create()
+    public function create(): View
     {
         return view('prs.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-
+        dd($request->all());
     }
 
-    public function show($id)
+        public function show(Pr $pr): View
     {
-        $pr = Pr::find($id);
-        return view('prs.show', [
+            return view('prs.show', 
+        [
             'pr' => $pr,
         ]);
     }
 
-    public function edit($pr)
+    public function edit(Pr $pr): View
     {
-        $pr = Pr::findOrFail($pr);
-
         return view('prs.edit',
         [
             'pr' => $pr,

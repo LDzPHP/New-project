@@ -4,37 +4,37 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\View\View;
+use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         return view('customers.index');
     }
 
-    public function create()
+    public function create(): View
     {
         return view('customers.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-
+        dd($request->all());
     }
 
-    public function show($id)
+    public function show(Customer $customer): View
     {
-        $customer = Customer::findOrFail($id);
+    
         return view('customers.show', 
         [
             'customer' => $customer,
         ]);
     }
 
-    public function edit($customer)
+    public function edit(Customer $customer): View
     {
-        $customer = Customer::findOrFail($customer);
-
         return view('customers.edit',
         [
             'customer' => $customer,

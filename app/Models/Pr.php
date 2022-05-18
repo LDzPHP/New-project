@@ -16,6 +16,8 @@ class Pr extends Model
  * @var array<int, string>
  */
 
+protected $table = 'prs';
+
 protected $fillable = [
     'pr_id',
     'pr_price',

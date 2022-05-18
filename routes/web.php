@@ -21,7 +21,8 @@ Route::controller(CustomerController::class)->group(function() {
     Route::prefix('customers')->group(function() {
         Route::get('/', 'index');
         Route::get('/create', 'create');
-        Route::get('/show/{id}', 'show');
+        Route::post('/create', 'store');
+        Route::get('/show/{customer}', 'show');
         Route::get('/edit/{customer}', 'edit');
     });
     });
@@ -31,7 +32,8 @@ Route::controller(SaleController::class)->group(function() {
     Route::prefix('sales')->group(function() {
         Route::get('/', 'index');
         Route::get('/create', 'create');
-        Route::get('/show/{id}', 'show');
+        Route::post('/create', 'store');
+        Route::get('/show/{sale}', 'show');
         Route::get('/edit/{sale}', 'edit');
     });
     });
@@ -41,7 +43,8 @@ Route::controller(PrController::class)->group(function() {
     Route::prefix('prs')->group(function() {
         Route::get('/', 'index');
         Route::get('/create', 'create');
-        Route::get('/show/{id}', 'show');
-        Route::get('/edit{pr}', 'edit');
+        Route::post('/create', 'store');
+        Route::get('/show/{pr}', 'show');
+        Route::get('/edit/{pr}', 'edit');
     });
     });

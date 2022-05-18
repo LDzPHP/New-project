@@ -3,38 +3,36 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sale;
+use Illuminate\View\View;
+use Illuminate\Http\Request;
 
 class SaleController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         return view('sales.index');
     }
 
-    public function create()
+    public function create(): View
     {
         return view('sales.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-
+        dd($request->all());
     }
 
-    public function show($id)
+    public function show(Sale $sale): View
     {
-        $sale = Sale::findOrFail($id);
-        
-        return view('sales.show', 
+            return view('sales.show', 
         [
             'sale' => $sale,
         ]);
     }
 
-    public function edit($sale)
+    public function edit(Sale $sale): View
     {
-        $sale = Sale::findOrFail($sale);
-
         return view('sales.edit',
         [
             'sale' => $sale,
