@@ -17,7 +17,7 @@ class Pr extends Model
  */
 
 protected $fillable = [
-    'amount',
+    'pr_id',
     'pr_price',
     'description',   
 ];
