@@ -14,10 +14,12 @@ class CustomerFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition()
+    public function definition(): array
     {
         return [
-            //
+            'name' => $this->faker->name(),
+            'email' => $this->faker->safeEmail(),
+            'id' => $this->faker->randomDigitNotNull(),
         ];
     }
 }
