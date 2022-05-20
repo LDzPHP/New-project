@@ -19,7 +19,6 @@ class CustomerFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'email' => $this->faker->safeEmail(),
-            'id' => $this->faker->randomDigitNotNull(),
         ];
     }
 }

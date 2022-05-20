@@ -19,7 +19,6 @@ class Customer extends Model
 protected $fillable = [
     'name',
     'email',
-    'customer_id',   
 ];
 
 protected static function newFactory(): CustomerFactory

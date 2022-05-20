@@ -18,7 +18,7 @@ class PrFactory extends Factory
     {
         return [
             'pr_id' => $this->faker->randomDigitNotNull(),
-            'pr_price' => $this->faker->randomDigit(),
+            'pr_price' => $this->faker->randomDigitNotNull(),
             'description' => $this->faker->text(35),
         ];
     }

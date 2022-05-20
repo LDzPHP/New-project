@@ -10,7 +10,9 @@ class PrController extends Controller
 {
     public function index(): View
     {
-        return view('prs.index');
+        return view('prs.index', [
+            'prs' => Pr::get(),
+        ]);
     }
 
     public function create(): View
@@ -20,7 +22,16 @@ class PrController extends Controller
 
     public function store(Request $request)
     {
-        dd($request->all());
+        $requestData = $request->all();
+
+        $pr = new Pr([
+            'pr_id' => $requestData['pr_id'],
+            'pr_price' => $requestData['pr_price'],
+            'description' => $requestData['description'],
+        ]);
+        $pr->save();
+
+        return redirect()->route('prs.show', ['pr' => $pr]);
     }
 
         public function show(Pr $pr): View
@@ -39,8 +50,21 @@ class PrController extends Controller
         ]);
     }
 
-        public function destroy()
+    public function update(Request $request, Pr $pr)
     {
+    $requestData = $request->all();
 
+    $pr->pr_id = $requestData['pr_id'];
+    $pr->pr_price = $requestData['pr_price'];
+    $pr->description = $requestData['description'];
+    $pr->save();
+
+    return redirect()->route('prs.show', ['pr' => $pr]);
+    }
+
+    public function destroy(Pr $pr)
+    {
+        $pr->delete();
+        return redirect()->route('prs.index');
     }
 }
