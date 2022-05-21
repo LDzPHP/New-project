@@ -23,8 +23,8 @@ class Sale extends Model
     ];
 
     protected static function newFactory(): SaleFactory
-{
-    return new SaleFactory();
-}
+    {
+        return new SaleFactory();
+    }
 
 }

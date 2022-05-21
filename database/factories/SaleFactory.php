@@ -17,7 +17,6 @@ class SaleFactory extends Factory
     public function definition(): array
     {
         return [
-
             'price' => $this->faker->randomNumber(),
             'print_id' => $this->faker->randomDigitNotNull(),
             'customer_id' => $this->faker->randomDigitNotNull(),

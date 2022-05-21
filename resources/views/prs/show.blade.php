@@ -1,8 +1,8 @@
 show prints
 <br>
-{{ $pr ->pr_price }}
+{{ $pr->pr_price }}
 <br>
-{{ $pr ->description }}
+{{ $pr->description }}
 
 <a href="{{ route('prs.index') }}"> 
 Back to index

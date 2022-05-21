@@ -1,12 +1,12 @@
 show sales
 <br>
-{{ $sale ->print_id }}
+{{ $sale->print_id }}
 <br>
-{{ $sale ->price }}
+{{ $sale->price }}
 <br>
-{{ $sale ->customer_id }}
+{{ $sale->customer_id }}
 <br>
-{{$sale ->sum }}
+{{$sale->sum }}
 
 <a href="{{ route('sales.index') }}"> 
 Back to index

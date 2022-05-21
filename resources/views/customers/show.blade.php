@@ -1,8 +1,8 @@
 show customers
 <br>
-{{ $customer ->name }}
+{{ $customer->name }}
 <br>
-{{ $customer ->email }}
+{{ $customer->email }}
 
 <a href="{{ route('customers.index') }}"> 
 Back to index

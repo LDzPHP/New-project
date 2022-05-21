@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CustomerStoreRequest;
+use App\Http\Requests\CustomerUpdateRequest;
 use App\Models\Customer;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
@@ -20,18 +22,15 @@ class CustomerController extends Controller
         return view('customers.create');
     }
 
-    public function store(Request $request)
-    {
-        $requestData = $request->all();
+    public function store(CustomerStoreRequest $customerStoreRequest)
+    {   
+        $validatedData = $customerStoreRequest->validated();
 
         $customer = new Customer([
-            'name' => $requestData['name'],
-            'email' => $requestData['email'],
+            'name' => $validatedData['name'],
+            'email' => $validatedData['email'],
         ]);
         $customer->save();
-        //$customer->name = $requestData['name'];
-        //$customer->email = $requestData['email'];
-        //$customer->save();
 
         return redirect()->route('customers.show', ['customer' => $customer]);
     }
@@ -52,20 +51,23 @@ class CustomerController extends Controller
         ]);
     }
 
-    public function update(Request $request, Customer $customer)
+    public function update(CustomerUpdateRequest $customerUpdateRequest, Customer $customer)
         {
-        $requestData = $request->all();
-
-        $customer->name = $requestData['name'];
-        $customer->email = $requestData['email'];
+        $validatedData = $customerUpdateRequest->validate([
+            'name' => 'required',
+            'email' => 'required',
+        ]);
+        
+        $customer->name = $validatedData['name'];
+        $customer->email = $validatedData['email'];
         $customer->save();
         
         return redirect()->route('customers.show', ['customer' => $customer]);
         }
-
+        
     public function destroy(Customer $customer)
-    {
-        $customer->delete();
-        return redirect()->route('customers.index');
-    }
+        {
+            $customer->delete();
+            return redirect()->route('customers.index');
+        }
 }

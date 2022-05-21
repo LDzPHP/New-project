@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SaleStoreRequest;
+use App\Http\Requests\SaleUpdateRequest;
 use App\Models\Sale;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
@@ -20,15 +22,15 @@ class SaleController extends Controller
         return view('sales.create');
     }
 
-    public function store(Request $request)
+    public function store(SaleStoreRequest $saleStoreRequest)
     {
-        $requestData = $request->all();
+        $validatedData = $saleStoreRequest->validated();
 
         $sale = new Sale([
-            'print_id' => $requestData['print_id'],
-            'price' => $requestData['price'],
-            'customer_id' => $requestData['customer_id'],
-            'sum' => $requestData['sum'],
+            'print_id' => $validatedData['print_id'],
+            'price' => $validatedData['price'],
+            'customer_id' => $validatedData['customer_id'],
+            'sum' => $validatedData['sum'],
         ]);
         $sale->save();
         return redirect()->route('sales.show', ['sale' => $sale]);
@@ -50,14 +52,14 @@ class SaleController extends Controller
         ]);
     }
 
-    public function update(Request $request, Sale $sale)
+    public function update(SaleUpdateRequest $saleUpdateRequest, Sale $sale)
     {
-    $requestData = $request->all();
+    $validatedData = $saleUpdateRequest->validated();
 
-    $sale->print_id = $requestData['print_id'];
-    $sale->price = $requestData['price'];
-    $sale->customer_id = $requestData['customer_id'];
-    $sale->sum = $requestData['sum'];
+    $sale->print_id = $validatedData['print_id'];
+    $sale->price = $validatedData['price'];
+    $sale->customer_id = $validatedData['customer_id'];
+    $sale->sum = $validatedData['sum'];
     $sale->save();
 
     return redirect()->route('sales.show', ['sale' => $sale]);

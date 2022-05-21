@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PrStoreRequest;
+use App\Http\Requests\PrUpdateRequest;
 use App\Models\Pr;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
@@ -20,14 +22,14 @@ class PrController extends Controller
         return view('prs.create');
     }
 
-    public function store(Request $request)
+    public function store(PrStoreRequest $prStoreRequest)
     {
-        $requestData = $request->all();
+        $validatedData = $prStoreRequest->validated();
 
         $pr = new Pr([
-            'pr_id' => $requestData['pr_id'],
-            'pr_price' => $requestData['pr_price'],
-            'description' => $requestData['description'],
+            'pr_id' => $validatedData['pr_id'],
+            'pr_price' => $validatedData['pr_price'],
+            'description' => $validatedData['description'],
         ]);
         $pr->save();
 
@@ -50,17 +52,21 @@ class PrController extends Controller
         ]);
     }
 
-    public function update(Request $request, Pr $pr)
-    {
-    $requestData = $request->all();
+    public function update(PrUpdateRequest $prUpdateRequest, Pr $pr)
+        {
+        $validatedData = $prUpdateRequest->validate([
+            'pr_id' => 'required',
+            'pr_price' => 'required',
+            'description' => 'required',
+        ]);
+    
+        $pr->pr_id = $validatedData['pr_id'];
+        $pr->pr_price = $validatedData['pr_price'];
+        $pr->description = $validatedData['description'];
+        $pr->save();
 
-    $pr->pr_id = $requestData['pr_id'];
-    $pr->pr_price = $requestData['pr_price'];
-    $pr->description = $requestData['description'];
-    $pr->save();
-
-    return redirect()->route('prs.show', ['pr' => $pr]);
-    }
+        return redirect()->route('prs.show', ['pr' => $pr]);
+        }
 
     public function destroy(Pr $pr)
     {
