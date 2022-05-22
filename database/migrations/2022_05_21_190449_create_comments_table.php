@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('author');
             $table->text('body');
-            $table->integer('customer_id');
+            $table->morphs('commentable');
             $table->timestamps();
         });
     }

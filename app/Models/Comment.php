@@ -3,18 +3,19 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Comment extends Model
 {
     protected $fillable = [
         'author',
         'body',
-        'customer_id',
+        'commentable_id',
+        'commentable_type',
     ];
 
-    public function customer(): BelongsTo
+    public function commentable(): MorphTo
     {
-        return $this->BelongsTo(Customer::class);
+        return $this->morphTo();
     }
 }

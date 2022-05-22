@@ -18,14 +18,17 @@ class CommentController extends Controller
         $validatedData = $request->validate([
             'author' => 'string|required',
             'body' => 'required|max:255',
-            'customer_id' => 'required',
+            'commentable_id' => 'required',
+            'commentable_type' => 'required',
         ]);
 
         $comment = new Comment([
             'author' => $validatedData['author'],
             'body' => $validatedData['body'],
-            'customer_id' => $validatedData['customer_id'],
+            'commentable_id' => $validatedData['commentable_id'],
+            'commentable_type' => $validatedData['commentable_type'],
         ]);
+        
         $comment->save();
 
         return redirect()->back();
