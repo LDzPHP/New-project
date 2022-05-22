@@ -1,3 +1,7 @@
+
+<a href="{{ route('prs.create') }}"> 
+    Create 
+</a>
 <table>
     <thead>
         <th>ID</th>
@@ -12,9 +16,6 @@
                 <td>{{ $pr->pr_price }}</td>
                 <td>{{ $pr->description }}</td>
                 <td>
-                    <a href="{{ route('prs.create') }}"> 
-                    Create 
-                    </a>
                     <a href="{{ route('prs.show', ['pr' => $pr->id]) }}"> 
                     Show 
                     </a>

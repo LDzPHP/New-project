@@ -8,7 +8,6 @@
     </div>
 @endif
 
-
 <form action="/customers/create" method="post">
 @csrf
 

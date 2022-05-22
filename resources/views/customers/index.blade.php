@@ -1,3 +1,7 @@
+
+<a href="{{ route('customers.create') }}"> 
+    Create 
+</a>
 <table>
     <thead>
         <th>ID</th>
@@ -12,9 +16,6 @@
                 <td>{{ $customer->name }}</td>
                 <td>{{ $customer->email }}</td>
                 <td>
-                    <a href="{{ route('customers.create') }}"> 
-                    Create 
-                    </a>
                     <a href="{{ route('customers.show', ['customer' => $customer->id]) }}"> 
                     Show 
                     </a>

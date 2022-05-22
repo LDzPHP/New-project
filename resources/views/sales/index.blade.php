@@ -1,3 +1,7 @@
+
+<a href="{{ route('sales.create') }}"> 
+    Create 
+</a>
 <table>
     <thead>
         <th>Print id</th>
@@ -14,9 +18,6 @@
                 <td>{{ $sale->sum }}</td>
 
                 <td>
-                    <a href="{{ route('sales.create') }}"> 
-                    Create 
-                    </a>
                     <a href="{{ route('sales.show', ['sale' => $sale->id]) }}"> 
                     Show 
                     </a>

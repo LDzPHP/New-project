@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PrController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\CustomerController;
@@ -53,4 +54,11 @@ Route::controller(PrController::class)->group(function() {
         Route::post('edit/{pr}', 'update');
         Route::get('delete/{pr}', 'destroy')->name('prs.delete');
     });
+});
+
+Route::controller(CommentController::class)->group(function () {
+    Route::prefix('comments')->group(function () {
+        Route::get('/', 'index');
+        Route::post('/store', 'store')->name('comments.store');
     });
+});
