@@ -5,6 +5,7 @@ use App\Http\Controllers\PrController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', [IndexController::class, 'index']);
+Route::get('/show/{customer}', [IndexController::class, 'show']);
 Route::controller(CustomerController::class)->group(function() {
 
     Route::prefix('customers')->group(function() {
