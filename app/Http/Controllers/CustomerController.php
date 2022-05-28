@@ -32,7 +32,7 @@ class CustomerController extends Controller
         ]);
         $customer->save();
 
-        return redirect()->route('customers.show', ['customer' => $customer]);
+        return redirect()->route('customers.index', ['customer' => $customer]);
     }
 
     public function show(Customer $customer): View
@@ -49,6 +49,7 @@ class CustomerController extends Controller
         [
             'customer' => $customer,
         ]);
+        return redirect()->route('customers.index');
     }
 
     public function update(CustomerUpdateRequest $customerUpdateRequest, Customer $customer)
@@ -62,7 +63,7 @@ class CustomerController extends Controller
         $customer->email = $validatedData['email'];
         $customer->save();
         
-        return redirect()->route('customers.show', ['customer' => $customer]);
+        return redirect()->route('customers.index');
         }
         
     public function destroy(Customer $customer)

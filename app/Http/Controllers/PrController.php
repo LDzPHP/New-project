@@ -33,7 +33,7 @@ class PrController extends Controller
         ]);
         $pr->save();
 
-        return redirect()->route('prs.show', ['pr' => $pr]);
+        return redirect()->route('prs.index', ['pr' => $pr]);
     }
 
         public function show(Pr $pr): View
@@ -65,7 +65,7 @@ class PrController extends Controller
         $pr->description = $validatedData['description'];
         $pr->save();
 
-        return redirect()->route('prs.show', ['pr' => $pr]);
+        return redirect()->route('prs.index', ['pr' => $pr]);
         }
 
     public function destroy(Pr $pr)

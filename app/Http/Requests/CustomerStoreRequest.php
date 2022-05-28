@@ -14,9 +14,8 @@ class CustomerStoreRequest extends FormRequest
     public function rules():array
     {
         return [
-            'name' => 'required',
-            'email' => 'required',
-            'customer_id' => 'required', 
+            'name' => ['required'],
+            'email' => ['required'],
         ];
     }
 }
