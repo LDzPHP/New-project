@@ -1,7 +1,7 @@
 @extends('dashboard')
 
 @section('content')
-    <div class="bg-gradient-to-r from-yellow-200 to-white">
+    <div class="bg-gradient-to-r from-yellow-200 to-white max-w-fit rounded-md mx-10">
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -15,11 +15,11 @@
         <form action="/customers/create" method="post">
             @csrf
             <label>
-            <h1 class="w-60 mx-20 bg-green-500 p-2 m-1 rounded-md text-white">NEW CUSTOMER</h1>
+            <h1 class="w-60 mx-20 bg-green-500 p-2 m-1 rounded-md text-white opacity-80">NEW CUSTOMER</h1>
             </label>
 
             <div class="form mx-10 my-5">
-                <label class="input w-60 mx-10 bg-green-500 p-2 m-1 rounded-md" input type="submit">
+                <label class="input w-60 mx-10 bg-green-500 p-2 m-1 rounded-md opacity-80" input type="submit">
                 
                 Name: <input type="text" name="name" value="{{ old('name') }}" 
                 class="block rounded-md"><br>

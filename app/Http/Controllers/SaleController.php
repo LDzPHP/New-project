@@ -33,7 +33,7 @@ class SaleController extends Controller
             'sum' => $validatedData['sum'],
         ]);
         $sale->save();
-        return redirect()->route('sales.show', ['sale' => $sale]);
+        return redirect()->route('sales.index', ['sale' => $sale]);
     }
 
         public function show(Sale $sale): View
@@ -62,7 +62,7 @@ class SaleController extends Controller
     $sale->sum = $validatedData['sum'];
     $sale->save();
 
-    return redirect()->route('sales.show', ['sale' => $sale]);
+    return redirect()->route('sales.index', ['sale' => $sale]);
     }
 
     public function destroy(Sale $sale)
